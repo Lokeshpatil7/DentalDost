@@ -1,13 +1,15 @@
 import "./App.css";
-import AntDsignCrud from "./AntDsignCrud";
 import Crud from "./Crud";
+import AntDesignCrud from "./AntDesignCrud";
+import New from "./New";
 
 function App() {
   return (
     <div className="App">
       <h1>ANT Desing</h1>
-      <AntDsignCrud />
+      <AntDesignCrud />
       {/* <Crud /> */}
+      {/* <New /> */}
     </div>
   );
 }

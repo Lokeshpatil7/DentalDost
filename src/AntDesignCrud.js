@@ -1,13 +1,18 @@
 import React from "react";
 import "antd/dist/antd.css";
 import "./index.css";
-import { Form, Input, Button, Select, Table, Drawer } from "antd";
+import { Form, Input, Button, Select, Table, Drawer, Alert, Modal } from "antd";
+import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
+
 import { useState, useEffect } from "react";
 import axios from "axios";
 
 export default () => {
   const [form] = Form.useForm();
+  const [drawerForm] = Form.useForm();
+
   const [visible, setVisible] = useState(false);
+  const [isEditMode, setIsEditMode] = useState(false);
   const [dataSource, setDataSource] = useState([]);
   const [totalPages, setTotalPages] = useState([]);
   const [tutorialId, setTutorialId] = useState();
@@ -28,7 +33,7 @@ export default () => {
     axios
       .get("http://localhost:3001/api/tutorials/getData ")
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         setDataSource(response.data.reverse()); //reverse() to get updated data first
         setTotalPages(response);
       });
@@ -36,7 +41,7 @@ export default () => {
 
   //============post/add=====================================================
   const onSubmit = (event) => {
-    console.log(tutorialObject);
+    //  console.log(tutorialObject);
     //event.preventDefault();
     if (
       tutorialObject.title &&
@@ -49,7 +54,7 @@ export default () => {
           ...tutorialObject,
         })
         .then((response) => {
-          console.log(response);
+          // console.log(response);
           alert("added");
           fetchData();
           form.resetFields();
@@ -61,6 +66,7 @@ export default () => {
 
   //=================update==========================================
   const onUpdateEditRow = () => {
+    // console.log("tutorialObject", tutorialObject);
     if (tutorialId > 0 && tutorialObject.mobileNo.length === 10) {
       axios
         .put("http://localhost:3001/api/tutorials/update/" + tutorialId, {
@@ -72,6 +78,8 @@ export default () => {
             fetchData();
             alert("updated");
             onResetEditRow();
+            onCloseDrawer();
+            // form.resetFields();
           }
         });
     } else {
@@ -80,6 +88,7 @@ export default () => {
   };
   //reset edit row handler
   const onResetEditRow = () => {
+    form.resetFields();
     setSelectedTutorialId(-1);
     setTutorialObject({
       title: "",
@@ -92,18 +101,28 @@ export default () => {
 
   //====================Delete=========================================
   const onDeleteHandler = (tutorialId) => (event) => {
+    Modal.confirm({
+      title: "are you want to delete this content",
+      okText: "Yes",
+      okType: "danger",
+      onOk: () => {
+        axios
+          .delete(
+            "http://localhost:3001/api/tutorials/deleteData/" + tutorialId,
+            {
+              id: tutorialId,
+            }
+          )
+          .then((response) => {
+            if (response) {
+              fetchData();
+              alert("Deleted");
+            }
+          });
+      },
+    });
     event.preventDefault();
-    console.log(tutorialId);
-    axios
-      .delete("http://localhost:3001/api/tutorials/deleteData/" + tutorialId, {
-        id: tutorialId,
-      })
-      .then((response) => {
-        if (response) {
-          fetchData();
-          alert("Deleted");
-        }
-      });
+    //console.log(tutorialId);
   };
 
   //form reset handler
@@ -146,9 +165,12 @@ export default () => {
       render: (text) => (
         <>
           <Button type="primary" danger onClick={onDeleteHandler(text.id)}>
-            Delete
+            Delete <DeleteOutlined onClick={onDeleteHandler(text.id)} />
           </Button>
-          <Button onClick={onEdit(text)}>Edit</Button>
+
+          <Button onClick={onEdit(text)}>
+            Edit <EditOutlined onClick={onEdit(text)} />
+          </Button>
         </>
       ),
       //   render: (text) => <Button onClick={onrenderhandler(text)}>delete</Button>,
@@ -161,7 +183,7 @@ export default () => {
   //   };
 
   const onTutorialPublishedHandler = (event) => {
-    console.log(event);
+    // console.log(event);
     if (event) {
       //console.log(event);
       setTutorialObject({
@@ -182,20 +204,17 @@ export default () => {
   };
 
   //drower close
-  const onClose = () => {
+  const onCloseDrawer = () => {
     setVisible(false);
-    setTutorialObject({
-      title: "",
-      description: "",
-      published: "",
-      mobileNo: "",
-    });
+    drawerForm.resetFields();
   };
-  const onEdit = (tutorialObject) => (e) => {
-    e.preventDefault();
-    console.log(tutorialObject);
+
+  const onEdit = (tutorialObject) => (event) => {
+    event.preventDefault();
+    // console.log(tutorialObject);
     setVisible(true);
     setTutorialId(tutorialObject.id);
+    drawerForm.resetFields();
     setTutorialObject({
       title: tutorialObject.title,
       description: tutorialObject.description,
@@ -205,6 +224,16 @@ export default () => {
     setSelectedTutorialId(tutorialObject.id);
   };
 
+  //onEditObjectChangeHandler
+  const onEditObjectChangeHandler = (event) => {
+    if (event) {
+      const { name, value } = event.target;
+      setTutorialObject({
+        ...tutorialObject,
+        [name]: value,
+      });
+    }
+  };
   //======page layout=====
   const { Option } = Select;
   const layout = {
@@ -274,24 +303,6 @@ export default () => {
           />
         </Form.Item>
 
-        <Form.Item
-          noStyle
-          shouldUpdate={(prevValues, currentValues) =>
-            prevValues.gender !== currentValues.gender
-          }
-        >
-          {({ getFieldValue }) =>
-            getFieldValue("gender") === "other" ? (
-              <Form.Item
-                name="customizeGender"
-                label="Customize Gender"
-                rules={[{ required: true }]}
-              >
-                <Input />
-              </Form.Item>
-            ) : null
-          }
-        </Form.Item>
         <Form.Item {...tailLayout}>
           <Button type="primary" htmlType="submit">
             Submit
@@ -314,25 +325,25 @@ export default () => {
       <Drawer
         title="Edit Your Content"
         placement="right"
-        onClose={onClose}
+        onClose={onCloseDrawer}
         visible={visible}
       >
-        <Form>
+        <Form form={drawerForm}>
           <Form.Item
             name="title"
             label="Tutorial Title"
             rules={[{ required: true }]}
           >
             <Input
-              placeholder="Enter tutorial title"
+              placeholder="Enter the Tutorial Title"
               type="text"
-              name="title"
-              defaultValue={tutorialObject.title}
+              class="form-control"
               id="title"
-              onChange={onTutorialObjectChangehandler}
+              name="title"
+              defaultValue={tutorialObject?.title}
+              onChange={onEditObjectChangeHandler}
             />
           </Form.Item>
-
           <Form.Item
             name="Description"
             label="Description"
@@ -341,8 +352,8 @@ export default () => {
             <Input
               placeholder="Enter tutorial descrption"
               name="description"
-              defaultValue={tutorialObject.description}
-              onChange={onTutorialObjectChangehandler}
+              defaultValue={tutorialObject?.description}
+              onChange={onEditObjectChangeHandler}
             />
           </Form.Item>
 
@@ -354,8 +365,8 @@ export default () => {
             <Select
               placeholder="Select a option "
               name="published"
-              defaultValue={tutorialObject.published == true ? "yes" : "no"}
-              onChange={onTutorialPublishedHandler}
+              defaultValue={tutorialObject?.published == true ? "yes" : "no"}
+              onChange={onEditObjectChangeHandler}
               allowClear
             >
               <Option value="yes">Yes</Option>
@@ -372,34 +383,16 @@ export default () => {
               type="number"
               placeholder="Enter your mobile no"
               name="mobileNo"
-              defaultValue={tutorialObject.mobileNo}
-              onChange={onTutorialObjectChangehandler}
+              defaultValue={tutorialObject?.mobileNo}
+              onChange={onEditObjectChangeHandler}
             />
           </Form.Item>
 
-          <Form.Item
-            noStyle
-            shouldUpdate={(prevValues, currentValues) =>
-              prevValues.gender !== currentValues.gender
-            }
-          >
-            {({ getFieldValue }) =>
-              getFieldValue("gender") === "other" ? (
-                <Form.Item
-                  name="customizeGender"
-                  label="Customize Gender"
-                  rules={[{ required: true }]}
-                >
-                  <Input />
-                </Form.Item>
-              ) : null
-            }
-          </Form.Item>
           <Form.Item {...tailLayout}>
             <Button type="primary" htmlType="submit" onClick={onUpdateEditRow}>
               Update
             </Button>
-            {/* <Button htmlType="button" onClick={onReset}>
+            {/* <Button htmlType="button" onClick={onResetEditRow}>
               Reset
             </Button> */}
           </Form.Item>
