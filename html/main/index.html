@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet" />
+  <link href="./main.css" rel="stylesheet" />
+  <!-- <link href="../new/step1.css" rel="stylesheet" /> -->
+  <!-- <link href="../new/step2.css" rel="stylesheet" /> -->
+  <!-- <link href="../new/step3.css" rel="stylesheet" /> -->
+  <title>ESG</title>
+  <style>
+    * {box-sizing: border-box}
+body {font-family: Verdana, sans-serif; margin:0}
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  /* max-width: 1000px; */
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  /* cursor: pointer; */
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: white;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: white;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+    .imageClass {
+      padding-left: 802px;
+    }
+
+    .buttonclass {
+      height: 46px;
+      width: 189px;
+      left: 1131px;
+      top: 67px;
+      border-radius: 3px;
+      padding: 13px, 28px, 13px, 28px;
+      background-color: #FF743D;
+      color: #FFFFFF;
+    }
+
+    .e10_168 {
+      background-color: rgba(0, 130.0000074505806, 135.00000715255737, 1);
+      width: 1440px;
+      height: 100px;
+      position: absolute;
+    }
+
+    .e10_169 {
+      width: 137px;
+      height: 39px;
+      position: absolute;
+      left: 120px;
+      top: 30px;
+    }
+
+
+    .e12_59 {
+      width: 387px;
+      height: 36px;
+      position: absolute;
+      left: 735px;
+      top: 34px;
+    }
+
+    .e12_40 {
+      width: 53px;
+      height: 36px;
+      position: absolute;
+      left: 0px;
+      top: 0px;
+    }
+
+    .ei12_40_12_19 {
+      transform: rotate(9.213866198408551e-15deg);
+      color: rgba(255, 255, 255, 1);
+      width: 49px;
+      height: 24px;
+      position: absolute;
+      left: 2px;
+      top: 1px;
+      font-family: Poppins;
+      text-align: left;
+      font-size: 16px;
+      letter-spacing: 0;
+    }
+
+    .ei12_40_12_17 {
+      border-radius: 500px;
+      background-color: rgba(255, 255, 255, 1);
+      width: 5px;
+      height: 5px;
+      position: absolute;
+      left: 24px;
+      top: 30px;
+    }
+
+    .e12_43 {
+      width: 77px;
+      height: 31px;
+      position: absolute;
+      left: 93px;
+      top: 0px;
+    }
+
+    .ei12_43_12_21 {
+      transform: rotate(9.213866198408551e-15deg);
+      color: rgba(255, 255, 255, 1);
+      width: 73px;
+      height: 24px;
+      position: absolute;
+      left: 2px;
+      top: 1px;
+      font-family: Poppins;
+      text-align: left;
+      font-size: 16px;
+      letter-spacing: 0;
+    }
+
+    .ei12_43_12_22 {
+      border-radius: 500px;
+      background-color: rgba(0, 130.0000074505806, 135.00000715255737, 1);
+      width: 5px;
+      height: 5px;
+      position: absolute;
+      left: 36px;
+      top: 25px;
+    }
+
+    .e12_46 {
+      width: 73px;
+      height: 31px;
+      position: absolute;
+      left: 206px;
+      top: 0px;
+    }
+
+    .ei12_46_12_21 {
+      transform: rotate(9.213866198408551e-15deg);
+      color: rgba(255, 255, 255, 1);
+      width: 69px;
+      height: 24px;
+      position: absolute;
+      left: 2px;
+      top: 1px;
+      font-family: Poppins;
+      text-align: left;
+      font-size: 16px;
+      letter-spacing: 0;
+    }
+
+    .ei12_46_12_22 {
+      border-radius: 500px;
+      background-color: rgba(0, 130.0000074505806, 135.00000715255737, 1);
+      width: 5px;
+      height: 5px;
+      position: absolute;
+      left: 34px;
+      top: 25px;
+    }
+
+    .e12_49 {
+      width: 70px;
+      height: 31px;
+      position: absolute;
+      left: 317px;
+      top: 0px;
+    }
+
+    .ei12_49_12_21 {
+      transform: rotate(9.213866198408551e-15deg);
+      color: rgba(255, 255, 255, 1);
+      width: 66px;
+      height: 24px;
+      position: absolute;
+      left: 2px;
+      top: 1px;
+      font-family: Poppins;
+      text-align: left;
+      font-size: 16px;
+      letter-spacing: 0;
+    }
+
+    .ei12_49_12_22 {
+      border-radius: 500px;
+      background-color: rgba(0, 130.0000074505806, 135.00000715255737, 1);
+      width: 5px;
+      height: 5px;
+      position: absolute;
+      left: 32.5px;
+      top: 25px;
+    }
+
+    .e12_64 {
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.11999999731779099);
+      background-color: rgba(255, 116.00000068545341, 61.00000016391277, 1);
+      width: 127px;
+      height: 46px;
+      position: absolute;
+      left: 1193px;
+      top: 27px;
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+      border-bottom-left-radius: 3px;
+      border-bottom-right-radius: 3px;
+    }
+
+    .ei12_64_10_134 {
+      transform: rotate(9.213866198408551e-15deg);
+      color: rgba(255, 255, 255, 1);
+      width: 71px;
+      height: 24px;
+      position: absolute;
+      left: 28px;
+      top: 11px;
+      font-family: Poppins;
+      text-align: left;
+      font-size: 16px;
+      letter-spacing: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="v10_141">
+    <div class="v12_88">
+      <div class="v10_168">
+        <div class="e10_168">
+          <div class="e10_169">
+            <img src="../new/Logo.png">
+          </div>
+        </div>
+      </div>
+      <div class="e12_59">
+        <div class="e12_40">
+          <span class="ei12_40_12_19">Home</span>
+          <div class="ei12_40_12_17"></div>
+        </div>
+        <div class="e12_43">
+          <a href="">
+            <span class="ei12_43_12_21">About us</span></a>
+          <div class="ei12_43_12_22"></div>
+        </div>
+        <div class="e12_46">
+          <a href="">
+            <span class="ei12_46_12_21">Services</span></a>
+          <div class="ei12_46_12_22"></div>
+        </div>
+        <div class="e12_49">
+          <a href="">
+            <span class="ei12_49_12_21">Contact</span></a>
+          <div class="ei12_49_12_22"></div>
+        </div>
+      </div>
+      <div class="e12_64">
+        <a href="">
+          <span class="ei12_64_10_134">Let’s talk</button></span></a>
+      </div>
+    </div>
+  </div>
+  <div>
+    
+
+    <div class="v12_85">
+      <div class="slideshow-container">
+
+<div class="mySlides fade">
+  <div class="numbertext">
+    <div class="imageClass">
+        <img src="../new/Group 6968.png">
+      </div>
+      <div class="v12_92">
+        <div class="v12_89">
+          <span class="v12_86">Your ESG Journey Starts Here</span>
+          <span class="v12_87">A cloud-based business analytics
+            application having offerings
+            that help organizations with ESG Monitoring and Governance,
+            Statutory & Regulatory compliance monitoring with inclusion of
+            different global principles on ESG and applicable laws as per
+            the industry
+          </span>
+        </div>
+      </div>
+      <div style="margin-inline-start: 115px;">
+        <button class="buttonclass">
+          GET ESG FIT NOW
+        </button>
+      </div>
+     </div>
+</div>
+
+<div class="mySlides fade" >  
+  <div class="numbertext">
+  <img src="../new/Section1.png" >
+  </div>
+</div>
+<div class="mySlides fade" > 
+   <div class="numbertext">
+  <img src="../new/stepSection2.png" >
+  </div> 
+</div>
+<div class="mySlides fade" > 
+  <div class="numbertext">
+  <img src="../new/stepSection3.png" >
+  </div> 
+</div>
+<!-- <div class="mySlides fade">
+  <div class="numbertext">
+        <div class="v12_100">
+        <div class="v14_24">
+            <div class="v14_22">
+                <span class="v12_103">Amet minim mollit non deserunt </span><span class="v12_104">ESG Fit offers
+                    different modules on Environmental, Social and
+                    Governance with specific KPIs formulated for specific industry and
+                    operational idiosyncrasies </span><span class="v12_107">Step 1</span>
+            </div>
+            <div class="v14_23">
+                <div class="v12_159">
+                    <span class="v12_147">Issue Prioritization</span>
+                    <div class="v12_146">
+                        <div class="v14_18">
+                            <img src="../new/target 1.png" />
+                        </div>
+                    </div>
+                </div>
+                <div class="v12_160">
+                    <span class="v12_156">Industry Prioritization Benchmarks</span>
+                    <div class="v12_157">
+                        <div class="v14_20">
+                            <div class="v14_21"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="v14_32">
+            <div class="v14_28"></div>
+            <div class="v14_29"></div>
+            <div class="v14_30"></div>
+            <div class="v14_31"></div>
+        </div>
+        <div class="v17_987">
+            <img src="../new/Group 6968.png" />
+        </div>
+    </div>
+     </div>
+</div> -->
+
+<!-- <div class="mySlides fade">
+  <div class="numbertext">
+        <div class="v14_33">
+      <div class="v14_35">
+        <div class="v14_36">
+          <span style="margin-top: -28px;" class="v14_37">Amet minim mollit non deserunt </span
+          ><span class="v14_38"
+            >ESG Fit offers different modules on Environmental, Social and
+            Governance with specific KPIs formulated for specific industry and
+            operational idiosyncrasies </span
+          ><span class="v14_39">Step 2</span>
+        </div>
+        <div class="v14_40">
+          <div class="v14_41">
+            <span class="v14_42">Issue Prioritization</span>
+            <div class="v14_43">
+              <img src="../new/Frame 5.png" />
+
+              <div class="v14_44">
+              <div class="v14_45"></div>
+            </div>
+          </div>
+        </div>
+        <div class="v14_46">
+          <span class="v14_47">Industry Prioritization Benchmarks</span>
+          <div class="v14_48">
+            <div class="v14_49">
+              <div class="v14_50"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="v14_51">
+      <div class="v14_52"></div>
+      <div class="v14_56"></div>
+      <div class="v14_53"></div>
+      <div class="v14_54"></div>
+      <div class="v14_55"></div>
+    </div>
+    <div class="v17_1338">
+      <img src="../new/Group 6968.png" />
+    </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- <div class="mySlides fade">
+  <div class="numbertext">
+      <div class="v14_57">
+    <div class="v14_59">
+      <div class="v14_60">
+        <span class="v14_61">Amet minim mollit non deserunt </span><span class="v14_62">ESG Fit offers different modules
+          on Environmental, Social and
+          Governance with specific KPIs formulated for specific industry and
+          operational idiosyncrasies </span><span class="v14_63">Step 3</span>
+      </div>
+      <div class="v14_64">
+        <div class="v14_65">
+          <img src="../new/Group 22.png">
+
+        </div>
+        <div class="v14_70">
+          <img src="../new/Group 23.png">
+
+        </div>
+      </div>
+    </div>
+    <div class="v14_75">
+      <div class="v14_77"></div>
+      <div class="v14_78"></div>
+      <div class="v14_79"></div>
+      <div class="v14_80"></div>
+    </div>
+    <div class="v17_1689">
+      <img src="../new/Group 6968.png">
+
+    </div>
+    </div>
+  </div>
+</div> -->
+</div>
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+<br>
+<div   style="margin-top: 500px;" >
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+  <span class="dot" onclick="currentSlide(4)"></span> 
+</div>
+</div>
+      <!-- <div class="imageClass">
+        <img src="../new/Group 6968.png">
+      </div>
+      <div class="v12_92">
+        <div class="v12_89">
+          <span class="v12_86">Your ESG Journey Starts Here</span>
+          <span class="v12_87">A cloud-based business analytics
+            application having offerings
+            that help organizations with ESG Monitoring and Governance,
+            Statutory & Regulatory compliance monitoring with inclusion of
+            different global principles on ESG and applicable laws as per
+            the industry
+          </span>
+        </div>
+      </div>
+      <div style="margin-inline-start: 115px;">
+        <button class="buttonclass">
+          GET ESG FIT NOW
+        </button>
+      </div> -->
+
+    </div>
+  </div>
+  <div class="v14_82">
+    <div class="v15_130">
+      <img src="../new/Group 29.png">
+    </div>
+
+    <div class="v15_129">
+      <span class="v15_124">Curated without any external intervention</span>
+      <span class="v15_125">The tool has been
+        designed with a view of being completely
+        independent in terms of its usage and accessibility for any
+        organization. It has the ability to customize the offering as per
+        company requirements, territorial jurisdiction and structures. The
+        process of setting up a compliance program has been beautifully
+        curated right from the payment gateway to setting up of individual
+        logins without any external intervention. </span>
+      <span class="v15_128">The compliance module boasts of useful
+        and user friendly features
+        like the usage of questionnaire module for compliance task
+        activation for identified user, linkages to simplify compliance
+        understanding and completion, easy access to governmental forms
+        and formats, management of licenses and asset specific
+        compliances. With unique offerings like ‘Not in office’, ‘Notice
+        tracking’, ‘Threshold capture’, ‘Fine calculator’ and others, the
+        system is strengthened to manage multiple processes that are
+        interwoven to create a web of interlinked workflows.
+        <button class="buttonclass" style="margin:10px">
+          GET ESG FIT NOW
+        </button> </span>
+      <div class="name"></div>
+      <span class="v15_126">ABOUT US</span>
+    </div>
+  </div>
+  <div class="v15_132">
+    <img src="../new/Section.png">
+  </div>
+  <div class="v15_277">
+    <img src="../new/Section2.png">
+
+  </div>
+  <div class="v15_186">
+    <div class="v15_243">
+      <span class="v15_210">Why Work with ESG FiT?</span><span style="margin-left: -117px;" class="v15_211">ESG Fit
+        demonstrates new end technology comprising of features
+        listed below</span><span class="v15_212">WHY US?</span>
+      <div class="v15_242">
+        <div class="v15_213">
+          <img src="../new/Frame 21.png">
+        </div>
+        <div class="v15_215">
+          <img src="../new/Frame 23.png">
+        </div>
+        <div class="v15_214">
+          <img src="../new/Frame 22.png">
+        </div>
+        <div class="v15_216">
+          <img src="../new/Frame 24.png">
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="v15_246">
+    <div class="v15_328">
+      <img src="../new/Frame 25.png">
+    </div>
+    <div class="v15_329">
+      <img src="../new/Frame 27.png">
+      <div class="v17_276"></div>
+    </div>
+    <div class="v15_330">
+      <img src="../new/Frame 28.png">
+    </div>
+    <div class="v15_331">
+      <img src="../new/man-with-papers 1.png">
+      <div class="v17_275"></div>
+    </div>
+    <span class="v15_332">Curated without any external intervention</span><span class="v15_333">The tool has been
+      designed with a view of being completely
+      independent in terms of its usage and accessibility for any
+      organization. It has the ability to customize the offering as per
+      company requirements, territorial jurisdiction and structures. The
+      process of setting up a compliance program has been beautifully
+      curated right from the payment gateway to setting up of individual
+      logins without any external intervention.
+      <div><button class="buttonclass">
+          GET ESG FIT NOW
+        </button></div>
+    </span>
+    <div class="name"> </div>
+    <span class="v15_335">ABOUT US</span>
+  </div>
+  <div class="v15_339">
+    <div class="v15_353">
+      <div class="v15_352">
+        <span class="v15_344">Ready to start assessing your ESG progress?</span><span class="v15_345">Get started with
+          our ESG Calculator to focus your efforts and
+          further your impact.
+        </span>
+      </div>
+      <div class="name"></div>
+    </div>
+    <div><button style="margin:200px; margin-inline: 627px; " class="buttonclass">
+        GET ESG FIT NOW
+      </button></div>
+  </div>
+  <div class="v15_354">
+    <div class="name"> <img style="margin-left: 111px; margin-top: 104px;" src="../new/bottomLogo.png"> </div>
+    <div style="margin-left:-63px; margin-top: 38px; " class="v15_380">
+      <img src="../new/twitter.png">
+      <img src="../new/facebook.png">
+      <img src="../new/youtube.png">
+    </div>
+    <div class="v15_384">
+      <span class="v15_385">2021 ESG FiT</span>
+      <span class="v15_386">Terms of Service</span>
+      <span class="v15_387">Privacy Policy</span>
+      <span class="v15_388">Change language</span>
+    </div>
+
+    <div class="v15_393" style="margin-top: 20px; margin-left: -26px;">
+      <span class="v15_395">Home</span><span class="v15_396">About us</span><span class="v15_397">Services</span><span
+        class="v15_398">Contact</span>
+
+    </div>
+    <div style="margin-top:-55px ;"><button style="margin-inline: 1072px; margin-top: -47px;" class="buttonclass">
+        GET ESG FIT NOW
+      </button></div>
+  </div>
+  </div>
+  </div>
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+</body>
+
+</html>
